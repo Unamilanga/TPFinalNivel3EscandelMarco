@@ -160,6 +160,33 @@ namespace NegocioUsuario
                 conexion.CerrarConexion();
             }
         }
+
+        public string RecuperarContraseña(string mail)
+        {
+            ConexionDB conexion = new ConexionDB();
+            try
+            {
+                conexion.SqlProcedimiento("storeRecuperar");
+                conexion.AgregarParametro("@email", mail);
+                var reader = conexion.EjecutarLectura();
+                if (reader.Read())
+                {
+                    return reader["Pass"].ToString();
+                }
+                else
+                {
+                    throw new Exception("No se encontró el usuario con ese correo.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al recuperar la contraseña: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
     }
 
 }

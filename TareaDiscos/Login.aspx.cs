@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
+using EmailService;
 using NegocioUsuario;
 
 namespace TareaDiscos
@@ -19,7 +20,21 @@ namespace TareaDiscos
 
         protected void LbOlvido_Click(object sender, EventArgs e)
         {
-			Response.Redirect("Default.aspx");
+            lblMensajeCorreo.Text = "";
+            Usuarios usu = new Usuarios();
+            Servicio servicio = new Servicio();
+            if(!Page.IsValid) return;
+
+            if (usu.ExisteMail(txtCorreo.Text))
+            {
+                servicio.RecuperarContraseña(txtCorreo.Text, usu.RecuperarContraseña(txtCorreo.Text));
+                lblMensajeCorreo.Text = "Se ha enviado un correo a su cuenta";
+
+            }
+
+
+
+
         }
 
         protected void LbNueva_Click(object sender, EventArgs e)

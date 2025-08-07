@@ -71,6 +71,16 @@ namespace EmailService
 
             EnviarCorreo(destino, asunto, mensaje);
         }
+
+        public void RecuperarContraseña(string destino, string clave)
+        {
+            string asunto = "Recuperación de contraseña";
+            string mensaje = $"<h1>Recuperación de contraseña</h1>" +
+                             "<p>Hemos recibido una solicitud para recuperar tu contraseña.</p>" +
+                             $"<p>Tu clave es: {clave}</p>" +
+                             "<p>Si no realizaste esta solicitud, por favor contactanos de inmediato.</p>";
+            EnviarCorreo(destino, asunto, mensaje);
+        }
     }
 }
 

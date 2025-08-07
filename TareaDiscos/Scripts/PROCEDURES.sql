@@ -140,3 +140,11 @@ where u.email=@email and u.pass= @contraseña
 
 END;
 GO
+
+CREATE PROCEDURE storeRecuperar 
+@Email varchar(100)
+AS
+BEGIN
+select pass from USERS where email = @Email
+END
+GO

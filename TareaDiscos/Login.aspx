@@ -17,7 +17,8 @@
                                         <div class="my-4">
                                                 <asp:Label AssociatedControlID="txtCorreo" runat="server" Text="Correo" CssClass="form-label fw-semibold"></asp:Label>
                                                 <asp:TextBox ID="txtCorreo" runat="server" TextMode="Email" CssClass="form-control border border-secondary" placeholder="Ej: ejemplo@mail.com" ></asp:TextBox>
-                                                <asp:RequiredFieldValidator ControlToValidate="txtCorreo" ErrorMessage="El correo es obligatorio" runat="server" ForeColor="Red" Display="Dynamic" />
+                                                <asp:RequiredFieldValidator ControlToValidate="txtCorreo" ErrorMessage="El correo es obligatorio" runat="server" ForeColor="Red" Display="Dynamic" ValidationGroup="Login" />
+                                                <asp:RequiredFieldValidator ControlToValidate="txtCorreo" ErrorMessage="El correo es obligatorio" runat="server" ForeColor="Red" Display="Dynamic" ValidationGroup="Recuperar" />
                                                 <asp:Label ID="lblMensajeCorreo" runat="server" CssClass="text-danger" EnableViewState="false"></asp:Label>
 
                                         </div>
@@ -28,16 +29,16 @@
                                                             <asp:TextBox ID="txtContraseña" ClientIDMode="Static" runat="server" TextMode="Password" CssClass="form-control border border-secondary" placeholder="Ingrese su contraseña"></asp:TextBox>
                                                              <button type="button" id="btnShowPass" class="btn btn-outline-secondary">👁️</button>
                                                                </div>
-                                                     <asp:RequiredFieldValidator ControlToValidate="txtContraseña" ErrorMessage="La contraseña es obligatorio" runat="server" ForeColor="Red" Display="Dynamic" />
+                                                     <asp:RequiredFieldValidator ControlToValidate="txtContraseña" ErrorMessage="La contraseña es obligatorio" runat="server" ForeColor="Red" Display="Dynamic" ValidationGroup="Login" />
                                                        <div class="text-end">
                                                            <asp:Label ID="lblMensajeContraseña" runat="server" CssClass="text-danger" EnableViewState="false"></asp:Label>
-                                                     <asp:LinkButton ID="lbOlvido" runat="server" OnClick="LbOlvido_Click" class="btn btn-link btn-sm text-danger mb-4">Recuperar contraseña</asp:LinkButton>
+                                                     <asp:LinkButton ID="lbOlvido" runat="server" OnClick="LbOlvido_Click" class="btn btn-link btn-sm text-danger mb-4" ValidationGroup="Recuperar">Recuperar contraseña</asp:LinkButton>
                                                  </div>
                                         </div>
                                      </div>
                             
                             <div class="d-flex justify-content-center mb-4">
-                                <asp:Button ID="BtnAcceder" runat="server" Text="Acceder" CssClass="btn btn-dark w-50" OnClick="BtnAcceder_Click"/>
+                                <asp:Button ID="BtnAcceder" runat="server" Text="Acceder" CssClass="btn btn-dark w-50" OnClick="BtnAcceder_Click" ValidationGroup="Login"/>
                             </div>
                                <div class="text-center mt-3">
                                 <span class="text-muted">¿No tienes cuenta?</span>
