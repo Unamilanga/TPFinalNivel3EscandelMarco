@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Collections;
+using System.Configuration;
 
 namespace Datos
 {
@@ -20,7 +21,8 @@ namespace Datos
 
         public ConexionDB()
         {
-            Connection = new SqlConnection("server=localhost\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true; ");
+            Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString);
+
             Command = new SqlCommand();
         }
 

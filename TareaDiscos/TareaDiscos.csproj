@@ -99,6 +99,7 @@
     <Content Include="Modificar.aspx" />
     <Content Include="Ncontraseña.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Scripts\BaseDeDatos.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -106,6 +107,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Maestra.Master" />
+    <None Include="Properties\PublishProfiles\TareaDiscosNivel3 - Web Deploy.pubxml" />
     <None Include="Scripts\.editorconfig" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\Contraseñaver.js" />
@@ -114,6 +116,8 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Scripts\PerfilImagen.js" />
+    <Content Include="Scripts\PROCEDURES.sql" />
+    <Content Include="Scripts\ScriptDB.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -205,7 +205,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al filtrar los articulos: " + ex.Message);
+                throw new Exception("Error al filtrar los articulos: " + ex.Message + " -- " + ex.StackTrace);
             }
         }
 
