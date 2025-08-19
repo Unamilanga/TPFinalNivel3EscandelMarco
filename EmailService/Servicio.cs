@@ -11,17 +11,21 @@ namespace EmailService
 
         public Servicio()
         {
+            //VARIABLES DE ENTORNO
+            // setx EMAIL_USER "mi_correo@.com"
+            // setx EMAIL_PASS "mi_clave"
+            string usuario = Environment.GetEnvironmentVariable("EMAIL_USER"); 
+            string clave = Environment.GetEnvironmentVariable("EMAIL_PASS");  
+
             server = new SmtpClient
             {
                 Host = ConfigurationManager.AppSettings["EmailHost"],
                 Port = int.Parse(ConfigurationManager.AppSettings["EmailPort"]),
                 EnableSsl = bool.Parse(ConfigurationManager.AppSettings["EmailEnableSsl"]),
-                Credentials = new NetworkCredential(
-                             ConfigurationManager.AppSettings["CorreoOutlook"],
-                             ConfigurationManager.AppSettings["ClaveCorreoOutlook"]
-                         )
+                Credentials = new NetworkCredential(usuario, clave)
             };
         }
+
 
 
         public void EnviarCorreo(string destino, string asunto, string mensaje)
@@ -43,8 +47,9 @@ namespace EmailService
             }
             catch (Exception ex)
             {
-                // Podés loguear o mostrar este error en un Label
-                throw new Exception("Error al enviar correo: " + ex.Message);
+                //HASTA QUE NO CAMBIE EL SERVICIO DE MAIL ESTO ME VA A TIRAR ERROR
+                //throw new Exception("Error al enviar correo: " + ex.Message);
+
             }
         }
 
