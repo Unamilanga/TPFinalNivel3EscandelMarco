@@ -53,5 +53,10 @@ namespace TareaDiscos
 
             }
         }
-	}
+
+        protected void LbAgregarFav_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -20,8 +20,11 @@
                     <p>
                         <asp:Label ID="lblDescripcion" runat="server" />
                     </p>
-                    <h4 class="text-success">$<asp:Label ID="lblPrecio" runat="server" /></h4>
-                    <a href="Default.aspx" class="btn btn-secondary mt-3">← Volver</a>
+                    <div class="d-flex mt-auto gap-4">
+                        <h4 class="text-success">$<asp:Label ID="lblPrecio" runat="server" /></h4>
+                        <a href="Default.aspx" class="btn btn-secondary mt-3">← Volver</a>
+                        <asp:LinkButton runat="server" ID="LbAgregarFav" CommandName="AgregarFv" CommandArgument='<%#Eval("Codigo")%>' CssClass="btn btn-outline-dark mt-auto align-self-start" OnClick="LbAgregarFav_Click"><i class="bi bi-star me-1"></i></asp:LinkButton>
+                    </div>
                 </div>
             </div>
             </div>

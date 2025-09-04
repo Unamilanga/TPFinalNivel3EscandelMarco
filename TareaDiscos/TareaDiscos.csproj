@@ -246,6 +246,10 @@
       <Project>{0fadf87f-a77b-4c70-a64f-2ff84b7e3634}</Project>
       <Name>EmailService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FavoritosNegocio\FavoritosNegocio.csproj">
+      <Project>{271af0de-b48a-4832-bfe6-c612ffeee07b}</Project>
+      <Name>FavoritosNegocio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NegocioSeguridad\NegocioSeguridad.csproj">
       <Project>{309f22e8-aace-48a5-843a-5f62e7d5db97}</Project>
       <Name>NegocioSeguridad</Name>

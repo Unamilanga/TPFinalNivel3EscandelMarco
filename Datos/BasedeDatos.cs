@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Collections;
 using System.Configuration;
+using System.Data;
 
 namespace Datos
 {
@@ -127,6 +128,13 @@ namespace Datos
             }
         }
 
+        public SqlParameter AgregarParametroReturn()
+        {
+            SqlParameter param = new SqlParameter("@ReturnVal", SqlDbType.Int);
+            param.Direction = ParameterDirection.ReturnValue;
+            Command.Parameters.Add(param);
+            return param;
+        }
 
 
     }

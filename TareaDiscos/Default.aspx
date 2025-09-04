@@ -53,6 +53,7 @@
                                                 <p class="card-text flex-grow-1 line-clamp-2" data-bs-toggle="tooltip"
                                                    title='<%# Eval("Descripcion") %>'><%# Eval("Descripcion") %></p>
                                                 <p class="card-text"><small class="text-body-secondary"><%# Eval("Categoria") %></small></p>
+                                                <div class="mt-auto d-flex gap-2">
                                                 <asp:LinkButton runat="server"
                                                                 CommandName="DetalleId"
                                                                 CommandArgument='<%# Eval("Codigo") %>'
@@ -60,6 +61,12 @@
                                                                 OnClick="BtnDetalle_Click">
                                                     <i class="bi bi-eye-fill me-1"></i> Ver detalle
                                                 </asp:LinkButton>
+                                                <asp:LinkButton runat="server" ID="LbAgregarFav" CommandName="AgregarFv" CommandArgument='<%#Eval("Id")%>' 
+                                                    CssClass="btn btn-outline-dark mt-auto align-self-start" OnClick="LbAgregarFav_Click">
+                                                    <asp:Label runat="server" ID="LblIcono" Text="<i class='bi bi-star'></i>" />
+                                                    </asp:LinkButton>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

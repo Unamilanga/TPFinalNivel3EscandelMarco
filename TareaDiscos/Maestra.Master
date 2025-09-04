@@ -17,6 +17,33 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
 
+    
+    .btn-tachito {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;       
+    height: 40px;      
+    border-radius: 50%; 
+    background-color: transparent;
+    border: 1px solid transparent; 
+    transition: all 0.2s ease;
+    color: #dc3545;   
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    
+    .btn-tachito:hover {
+    background-color: #dc3545; 
+    color: white;             
+}
+
+
+    .btn-tachito:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
      :root {
      --bs-font-sans-serif: 'Inter', sans-serif;
      --bs-heading-font: 'Poppins', sans-serif;

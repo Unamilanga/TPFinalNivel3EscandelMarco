@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using FavoritosNegocio;
 
 namespace TareaDiscos
 {
@@ -85,12 +86,12 @@ namespace TareaDiscos
                         RepetidorArticulos.DataBind();
 
 
-                            if (TxtBuscador.Text == "" || TxtBuscador.Text.Length==1)
-                            {
-                                RepetidorArticulos.DataSource = buscador.Lista();
-                                RepetidorArticulos.DataBind();
+                        if (TxtBuscador.Text == "" || TxtBuscador.Text.Length == 1)
+                        {
+                            RepetidorArticulos.DataSource = buscador.Lista();
+                            RepetidorArticulos.DataBind();
 
-                            }
+                        }
 
                     }
                     catch (Exception ex)
@@ -120,12 +121,12 @@ namespace TareaDiscos
 
         protected void btfiltro_Click(object sender, EventArgs e)
         {
-            List<string> Filcategorias=new List<string>();
+            List<string> Filcategorias = new List<string>();
             List<string> Filmarcas = new List<string>();
             Catalogo filtrocat = new Catalogo();
             try
             {
-                foreach(ListItem i in cblCategorias.Items)
+                foreach (ListItem i in cblCategorias.Items)
                 {
                     if (i.Selected)
                     {
@@ -158,6 +159,22 @@ namespace TareaDiscos
         protected void btcancela_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx");
+        }
+
+        protected void LbAgregarFav_Click(object sender, EventArgs e)
+        {
+            if (Session["Usuario"] != null)
+            {
+                int IdArticulo = int.Parse(((LinkButton)sender).CommandArgument);
+                Usuario usuario = (Usuario)Session["Usuario"];
+                Favorito favoritos = new Favorito();
+
+                int resultado = 0; 
+                int Existe = favoritos.AgregarFavorito(usuario.Id, IdArticulo, resultado); 
+
+
+            }
+
         }
     }
 }

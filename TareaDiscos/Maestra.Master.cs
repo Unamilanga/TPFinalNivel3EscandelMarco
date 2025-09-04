@@ -24,34 +24,23 @@ namespace TareaDiscos
                 }
             }
 
-			if(Page is Modificar||Page is Detalle)
-			{
-				if (Seguridad.SesionActiva(Session["Usuario"]))
-				{
-
-                    Usuario usuario = (Usuario)Session["Usuario"];
-					if (usuario.Id!=1)
-					{
-                        Response.Redirect("Default.aspx", false);
-                        return;
-                    }
-                }
-            }
-
-            if(Seguridad.SesionActiva(Session["Usuario"]))
+            if (Page is Modificar || Page is Detalle)
             {
-                
                 Usuario usuario = (Usuario)Session["Usuario"];
-                if ((usuario.Id==1))
+                if (!usuario.Admin)
                 {
-                    EsAdmin = true;
-                }
-                else
-                {
-                    EsAdmin = false;
+                    Response.Redirect("Default.aspx", false);
+                    return;
                 }
             }
-            
+
+
+            if (Seguridad.SesionActiva(Session["Usuario"]))
+            {
+                Usuario usuario = (Usuario)Session["Usuario"];
+                EsAdmin = usuario.Admin;
+            }
+
 
 
         }
